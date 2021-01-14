@@ -1,25 +1,30 @@
 package ro.mta.se.lab;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.List;
 
-public class Main {
+public class Main extends Application {
 
-    public static void main(String[] args){
-        System.out.println("Start");
-        LocationManager locationManager  = LocationManager.getInstance();
-        ApiRequest requester = new ApiRequest();
-
-        FileReader fileReader = new FileReader("./src/resources/inFile");
-        fileReader.fileScanner();
-        List<Country> ctList = locationManager.getCountryList();
-        for(Country ct: ctList){
-            for(City city: ct.getCityList()){
-                JSONObject jsonObject = requester.makeRequest(city.getCityId());
-                System.out.println(jsonObject.toString(4));
-            }
-        }
+    public static void main(String[] args)
+    {
+        launch(args);
     }
 
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(this.getClass().getResource("/gui.fxml"));
+        loader.setController(new WeatherController());
+        primaryStage.setScene(new Scene(loader.load()));
+        primaryStage.setTitle("MeteoRed");
+        primaryStage.show();
+
+
+    }
 }

@@ -56,4 +56,17 @@ public class LocationManager {
         return -1;
     }
 
+    public int getCityId(String country, String city){
+
+        for(Country ct: countryList){
+            if(ct.getCountryCode().equals(country)){
+                for(City cit: ct.getCityList()){
+                    if(cit.getCityName().equals(city)){
+                        return cit.getCityId();
+                    }
+                }
+            }
+        }
+        return 0;
+    }
 }

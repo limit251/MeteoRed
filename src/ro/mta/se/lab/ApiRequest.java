@@ -53,5 +53,23 @@ public class ApiRequest {
         return null;
     }
 
+    public WeatherForecast jsonParser(JSONObject jsonObject){
+        String description;
+        float temperature, windSpeed;
+        int humidity;
 
+        WeatherForecast weatherForecast = new WeatherForecast();
+
+        temperature = jsonObject.getJSONObject("main").getFloat("temp");
+        windSpeed = jsonObject.getJSONObject("wind").getFloat("speed");
+        humidity = jsonObject.getJSONObject("main").getInt("humidity");
+        description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+
+        weatherForecast.setDesc(description);
+        weatherForecast.setHumidity(humidity);
+        weatherForecast.setTemp(temperature);
+        weatherForecast.setWindSpeed(windSpeed);
+
+        return weatherForecast;
+    }
 }
