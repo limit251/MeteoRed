@@ -13,10 +13,12 @@ import javafx.scene.input.MouseEvent;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 public class WeatherController {
 
     LocationManager locationManager;
+    HistoryLogger historyLogger;
     ApiRequest apiRequest;
     FileReader fileReader;
 
@@ -27,15 +29,19 @@ public class WeatherController {
     private ComboBox cityComboBox, countryComboBox;
 
     @FXML
-    private Label  cityName, temperature, wind, humidity, description, tempDesc, humDesc, pressDesc, muTemp;
+    private Label  cityName, temperature, wind, humidity, description,windDesc, humDesc, muHumidity, muTemp, muWind;
 
     @FXML
     private void initialize(){
         locationManager = LocationManager.getInstance();
+        historyLogger = HistoryLogger.getInstance();
         apiRequest = new ApiRequest();
         fileReader = new FileReader("./src/resources/inFile");
+        hide();
 
-        fileReader.fileScanner();
+        if(!fileReader.fileScanner()){
+            return;
+        };
 
         countryObservableList = FXCollections.observableList(locationManager.getCountryList());
 
@@ -71,7 +77,9 @@ public class WeatherController {
                     jsonObject = apiRequest.makeRequest(cityid);
                     weatherForecast = apiRequest.jsonParser(jsonObject);
 
+                    historyLogger.log(city, country, weatherForecast);
                     showWeather(weatherForecast, city);
+                    show();
                 }
             }
         });
@@ -105,5 +113,33 @@ public class WeatherController {
 
     private float convertKtoC(float temp){
         return (float) (temp - 272.15);
+    }
+
+    private void hide(){
+        cityName.setVisible(false);
+        temperature.setVisible(false);
+        wind.setVisible(false);
+        humidity.setVisible(false);
+        description.setVisible(false);
+        muTemp.setVisible(false);
+        muHumidity.setVisible(false);
+        muWind.setVisible(false);
+        windDesc.setVisible(false);
+        humDesc.setVisible(false);
+
+    }
+
+    private void show(){
+        cityName.setVisible(true);
+        temperature.setVisible(true);
+        wind.setVisible(true);
+        humidity.setVisible(true);
+        description.setVisible(true);
+        muHumidity.setVisible(true);
+        muWind.setVisible(true);
+        muTemp.setVisible(true);
+        windDesc.setVisible(true);
+        humDesc.setVisible(true);
+
     }
 }

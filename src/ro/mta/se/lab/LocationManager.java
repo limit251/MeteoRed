@@ -23,22 +23,27 @@ public class LocationManager {
     }
 
     public boolean addCity(String fileLine){
-        String[] splitted;
-        Country currentCountry;
-        int index;
 
-        splitted = fileLine.split(" ");
-        index = getCountryIndex(splitted[4]);
+            String[] splitted = null;
+            Country currentCountry;
+            int index = -2;
 
-        if(index == -1){
-            currentCountry = new Country(splitted[4]);
-            countryList.add(currentCountry);
-        }
-        else{
-            currentCountry = countryList.get(index);
-        }
+            try {
+                splitted = fileLine.split(" ");
+                index = getCountryIndex(splitted[4]);
+            } catch (Exception e) {
+                System.out.println("Wrong formatted file");
+                return false;
+            }
+            if (index == -1) {
+                currentCountry = new Country(splitted[4]);
+                countryList.add(currentCountry);
+            } else {
+                currentCountry = countryList.get(index);
+            }
 
-        currentCountry.addCity(Integer.parseInt(splitted[0].trim()), splitted[1]);
+            currentCountry.addCity(Integer.parseInt(splitted[0].trim()), splitted[1]);
+
 
         return true;
     }

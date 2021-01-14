@@ -3,6 +3,7 @@ package ro.mta.se.lab;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
@@ -26,5 +27,9 @@ public class Main extends Application {
         primaryStage.show();
 
 
+    }
+    public void stop(){
+        HistoryLogger historyLogger = HistoryLogger.getInstance();
+        historyLogger.close();
     }
 }

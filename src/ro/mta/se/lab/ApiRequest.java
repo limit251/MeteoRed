@@ -24,6 +24,7 @@ public class ApiRequest {
         finalRequest = getRequest + "id=" + cityId + "&appid=" + apiKey;
 
         try {
+
             url = new URL(finalRequest);
             con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
@@ -44,11 +45,13 @@ public class ApiRequest {
                 return jsonObject;
             }
             else{
-                System.out.println("Eroaree");
+                AlertClass alertClass = new AlertClass(1, "Eroare", "Pagină Indisponibilă");
+                alertClass.showAlert();
             }
         }
         catch (IOException e){
-            System.out.println("Exceptioon");
+            AlertClass alertClass = new AlertClass(1, "Eroare", "Eroare detectată");
+            alertClass.showAlert();
         }
         return null;
     }

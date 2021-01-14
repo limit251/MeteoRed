@@ -13,7 +13,7 @@ public class FileReader {
         locationManager = LocationManager.getInstance();
     }
 
-    public void fileScanner(){
+    public boolean fileScanner(){
         Scanner scanner = null;
         String line;
 
@@ -21,7 +21,9 @@ public class FileReader {
             scanner = new Scanner(new File(filePath));
         }
         catch (FileNotFoundException e){
-            System.out.println("File not found");
+            AlertClass alertClass = new AlertClass(1, "Eroare", "Nu s-a găsit fișierul de intrare");
+            alertClass.showAlert();
+            return false;
         }
 
         while (true){
@@ -31,9 +33,14 @@ public class FileReader {
                 break;
             }
             line = scanner.nextLine();
-            locationManager.addCity(line);
+            if (!locationManager.addCity(line)){
+                AlertClass alertClass = new AlertClass(1, "Eroare parsare fișier",
+                        "Verificați fisierul și restartați aplicația.");
+                alertClass.showAlert();
+                return false;
+            };
         }
-
+        return true;
     }
 
 }

@@ -58,8 +58,8 @@
                         <Font name="System Bold Italic" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="193.0" layoutY="280.0" text="m/s" textFill="WHITE" />
-                  <Label layoutX="193.0" layoutY="310.0" text="\%" textFill="WHITE" />
+                  <Label fx:id="muWind" layoutX="193.0" layoutY="280.0" text="m/s" textFill="WHITE" />
+                  <Label fx:id="muHumidity" layoutX="193.0" layoutY="310.0" text="\%" textFill="WHITE" />
                </children>
             </Pane>
             <Pane layoutX="7.0" layoutY="404.0" prefHeight="99.0" prefWidth="504.0">
@@ -72,8 +72,8 @@
                         <Glow />
                      </effect>
                   </Label>
-                  <Label layoutX="14.0" layoutY="50.0" text="possible one of the best meteo app" textFill="#ababab" />
-                  <Label layoutX="14.0" layoutY="66.0" text="since 2021" textFill="#9e9e9e">
+                  <Label layoutX="14.0" layoutY="50.0" text="possible one of the best meteo app" textFill="WHITE" />
+                  <Label layoutX="14.0" layoutY="66.0" text="since 2021" textFill="WHITE">
                      <font>
                         <Font name="Khmer OS System" size="13.0" />
                      </font>
