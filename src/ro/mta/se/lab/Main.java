@@ -3,12 +3,9 @@ package ro.mta.se.lab;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Main extends Application {
 

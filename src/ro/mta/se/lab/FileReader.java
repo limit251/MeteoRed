@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class FileReader {
-    private String filePath;
-    private LocationManager locationManager;
+    private final String filePath;
+    private final LocationManager locationManager;
 
     public FileReader(String path){
         filePath = path;
@@ -38,7 +38,7 @@ public class FileReader {
                         "Verificați fisierul și restartați aplicația.");
                 alertClass.showAlert();
                 return false;
-            };
+            }
         }
         return true;
     }

@@ -9,7 +9,7 @@ import java.util.Date;
 public class HistoryLogger {
 
     private static HistoryLogger historyLogger = null;
-    private File logFile;
+    private final File logFile;
     private FileWriter fileWriter;
     private final String logString = "[INFO]: ";
 
@@ -47,8 +47,8 @@ public class HistoryLogger {
         Date date = new Date();
         String finalString;
 
-        finalString = formatter.format(date) + logString + country + " " + city + " temp" + String.valueOf(weatherForecast.getTemp()) +
-                " humidity" + String.valueOf(weatherForecast.getHumidity()) + "\n";
+        finalString = formatter.format(date) + logString + country + " " + city + " temp" + weatherForecast.getTemp() +
+                " humidity" + weatherForecast.getHumidity() + "\n";
 
         try {
             fileWriter.write(finalString);

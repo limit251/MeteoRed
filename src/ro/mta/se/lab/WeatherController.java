@@ -1,7 +1,5 @@
 package ro.mta.se.lab;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,11 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import org.json.JSONObject;
-
-import java.io.File;
-import java.util.logging.Logger;
 
 public class WeatherController {
 
@@ -23,7 +17,6 @@ public class WeatherController {
     FileReader fileReader;
 
     ObservableList<Country> countryObservableList;
-    ObservableList<String> countryNames;
 
     @FXML
     private ComboBox cityComboBox, countryComboBox;
@@ -41,7 +34,7 @@ public class WeatherController {
 
         if(!fileReader.fileScanner()){
             return;
-        };
+        }
 
         countryObservableList = FXCollections.observableList(locationManager.getCountryList());
 

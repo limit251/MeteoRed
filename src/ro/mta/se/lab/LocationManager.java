@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocationManager {
-    private List<Country> countryList;
+    private final List<Country> countryList;
     private static LocationManager single_instance = null;
 
     private LocationManager(){

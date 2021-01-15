@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Country {
 
-    private List<City> cityList;
-    private String countryCode;
+    private final List<City> cityList;
+    private final String countryCode;
 
     public Country(String name){
         countryCode= name;

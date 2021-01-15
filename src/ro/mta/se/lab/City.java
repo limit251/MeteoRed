@@ -2,8 +2,8 @@ package ro.mta.se.lab;
 
 public class City {
 
-    private String cityName;
-    private int cityId;
+    private final String cityName;
+    private final int cityId;
 
     public City(int id, String name){
         cityName = name;
