@@ -7,7 +7,7 @@ The program uses  OpenWeatherMapApi to gather weather current data of the city.
 The program offers a simple and basic interface, easy to use.\
 The user selects a country and after that the city he wants the forecast for. 
 
-![Application GUI](https://ibb.co/VtjsRvq)
+![Application GUI](/images/gui.png)
 
 ## How to run
 
@@ -43,13 +43,13 @@ After finishing this project I've improved my knowledge in working with Java, Ja
 When an exception occurs, user will receive a visual alert.
 The alert contains the error and a "how to fix it" message.
 
-![Exception example](https://ibb.co/vX7R4nz)
+![Exception example](/images/error.png)
 
 
 
 ## UML diagrams
 
-![Flow Chart](https://ibb.co/GVgMPzm%20)
+![Flow Chart](/images/flowchart.png)
 
-![Classes Diagram](https://ibb.co/5sBB8fG)
+![Classes Diagram](/images/classes_diagram.png)
 
