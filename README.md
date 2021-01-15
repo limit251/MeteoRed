@@ -49,7 +49,9 @@ The alert contains the error and a "how to fix it" message.
 
 ## UML diagrams
 
+### FlowChart
 ![Flow Chart](/images/flowchart.png)
 
-![Classes Diagram](/images/classes_diagram.png)
+### Classes Diagram
+![Classes Diagram](/images/classes_diagram.jpg)
 
